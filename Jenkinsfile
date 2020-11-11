@@ -31,7 +31,7 @@ pipeline {
                 echo "in the test stage"
                 sh 'npm test'
                	script{
-			        def OUTPUT =  sh(returnStdout: true, script: 'git shortlog')            
+			        OUTPUT=sh(returnStdout: true, script: 'git shortlog')            
 			        echo $OUTPUT
 		        }
             }
