@@ -39,7 +39,7 @@ pipeline {
                 } 
 
                 sh(returnStdout: true, script: 'git shortlog > commits').trim()
-                echo "$(<commits)"
+                echo '$(<commits)'
             }
 	    }
 
