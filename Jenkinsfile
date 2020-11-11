@@ -21,7 +21,7 @@ pipeline {
                 sh 'sed -i "s/$SEARCH/$REPLACE/" package.json'
                 sh 'sed -i "s/$PREV/$SWAP/" ./src/App.test.js'
                 sh 'ls main'
-		sh 'cat ./main/App.test.js > ./src/App.test.js'
+		        sh 'cat ./main/App.test.js > ./src/App.test.js'
                 sh 'npm ci'
             }
 
@@ -31,11 +31,11 @@ pipeline {
                 echo "in the test stage"
                 sh 'npm test'
                	script{
-			OUTPUT =  sh(returnStdout: true, script: 'git shortlog)            
-			echo "Git commits: ${OUTPUT}"
-		}
+			        OUTPUT =  sh(returnStdout: true, script: 'git shortlog')            
+			        echo "Git commits: ${OUTPUT}"
+		        }
             }
-	}
+	    }
 
     }
 }
