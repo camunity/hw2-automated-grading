@@ -10,6 +10,7 @@ pipeline {
         REPLACE = '"test": "CI=true react-scripts test --watch=all",'
         PREV = 'learn react'
         SWAP = 'Add a new url'
+        COMMITS = 'x'
     }
 
     stages {
@@ -23,11 +24,6 @@ pipeline {
                 sh 'ls main'
                 sh 'ls -a'
 		        sh 'cat ./main/App.test.js > ./src/App.test.js'
-                sh(returnStdout: true, script: 'git shortlog > commits') 
-                node{
-                    def output = sh(returnStdout: true, script: 'git shortlog').trim()
-                    println "output = ${output}"
-                }
                 sh 'npm ci'
             }
 
@@ -37,12 +33,13 @@ pipeline {
                 echo "in the test stage"
                 sh 'npm test'
                 sh 'ls -a'
-               	script {
-                    environment {
-                        COMMITS = sh(returnStdout: true, script: 'git shortlog')            
-                    }
-                    echo $COMMITS
-		        }
+                script {
+                    env.COMMITS = sh(returnStdout: true, script: 'git shortlog')
+                    echo "Commits: ${env.COMMITS}"
+                } 
+
+                sh(returnStdout: true, script: 'git shortlog > commits').trim()
+                echo "$(<commits)"
             }
 	    }
 
