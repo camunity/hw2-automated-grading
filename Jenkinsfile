@@ -34,12 +34,9 @@ pipeline {
                 sh 'npm test'
                 sh 'ls -a'
                 script {
-                    env.COMMITS = sh(returnStdout: true, script: 'git shortlog')
-                    echo "Commits: ${env.COMMITS}"
-                } 
-
-                sh(returnStdout: true, script: 'git shortlog > commits')
-                echo '$(<commits)'
+                    sh(returnStdout: true, script: 'git shortlog > commits')
+                    sh('echo $(<commits)')
+                }
             }
 	    }
 
