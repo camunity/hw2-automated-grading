@@ -13,11 +13,6 @@ pipeline {
     }
 
     stages {
-        stage('Prebuild'){
-                dir('react-test') {
-                    git ''
-                }
-        }
         stage('Build') {
             steps {
                 sh 'pwd'
@@ -25,7 +20,7 @@ pipeline {
                 git 'https://github.com/araf-rahman/cmp464_react_Proj2.git'
                 sh 'sed -i "s/$SEARCH/$REPLACE/" package.json'
                 sh 'sed -i "s/$PREV/$SWAP/" ./src/App.test.js'
-                sh 'ls ../react-test'
+                sh 'ls ..'
                 sh 'npm ci'
             }
 
