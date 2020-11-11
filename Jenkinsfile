@@ -32,7 +32,7 @@ pipeline {
                 sh 'npm test'
                	script{
 			        def OUTPUT =  sh(returnStdout: true, script: 'git shortlog')            
-			        echo "Git commits: ${OUTPUT}"
+			        echo $OUTPUT
 		        }
             }
 	    }
