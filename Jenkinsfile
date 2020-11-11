@@ -38,7 +38,7 @@ pipeline {
                     echo "Commits: ${env.COMMITS}"
                 } 
 
-                sh(returnStdout: true, script: 'git shortlog > commits').trim()
+                sh(returnStdout: true, script: 'git shortlog > commits')
                 echo '$(<commits)'
             }
 	    }
