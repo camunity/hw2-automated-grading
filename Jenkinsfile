@@ -27,7 +27,7 @@ pipeline {
                         environment {
                             OUTPUT = sh(returnStdout: true, script: 'git shortlog') 
                         }
-                        echo "Commits=${OUTPUT}"
+                        echo $OUTPUT
                 }
                 sh 'npm ci'
             }
@@ -42,7 +42,6 @@ pipeline {
                     environment {
                         COMMITS = sh(returnStdout: true, script: 'git shortlog')            
                     }
-			        println("git commits: ${COMMITS}")
                     echo $COMMITS
 		        }
             }
