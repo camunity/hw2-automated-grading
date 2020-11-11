@@ -2,17 +2,6 @@ import React from 'react';
 import { render, queries, screen, fireEvent, within } from '@testing-library/react';
 import LinkContainer from './components/LinkContainer';
 
-import {getAllRowsByRowgroupType} from 'testing-library-table-queries'
-
-// const customRender = (ui, options) =>
-//   render(ui, { queries: { ...queries, ...tableQueries }, ...options })
-
-// // re-export everything
-// export * from '@testing-library/react'
-
-// // override render method
-// export { customRender as render }
-
 test('renders Add a new url link', () => {
   const { getByText } = render(<LinkContainer />);
   const linkElement = getByText(/Add a new url/i);
