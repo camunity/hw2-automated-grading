@@ -23,11 +23,10 @@ pipeline {
                 sh 'ls main'
                 sh 'ls -a'
 		        sh 'cat ./main/App.test.js > ./src/App.test.js'
-                script {
-                        environment {
-                            OUTPUT = sh(returnStdout: true, script: 'git shortlog') 
-                        }
-                        echo $OUTPUT
+                sh(returnStdout: true, script: 'git shortlog > commits') 
+                node{
+                    def output = sh(returnStdout: true, script: 'git shortlog').trim()
+                    println "output = ${output}"
                 }
                 sh 'npm ci'
             }
