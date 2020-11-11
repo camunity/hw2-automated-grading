@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo "in the test stage"
                 sh 'npm test'
-                sh 'git shortlog'
+                sh(returnStdout: true, script: 'git shortlog')
             }
         }
 
