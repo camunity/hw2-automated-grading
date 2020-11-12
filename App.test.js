@@ -34,7 +34,7 @@ test('Updating name input updates table', () => {
   fireEvent.change(inputs[1], { target: { value: 'https://www.ayocamo.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('Add Favorite Website'), submit)
+  fireEvent.click(getByText('submit'), submit)
 
   expect(getAllByRole('row')).toHaveLength(3)
 })
@@ -46,7 +46,7 @@ test('Clicking remove deletes row in table', () => {
   fireEvent.change(inputs[1], { target: { value: 'https://www.github.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('Add Favorite Website'), submit)
+  fireEvent.click(getByText('submit'), submit)
 
   fireEvent.click(getByText('Delete'))
 
@@ -57,7 +57,7 @@ test('Clicking remove deletes row in table', () => {
   fireEvent.change(inputs[1], { target: { value: 'https://www.ayocamo.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('Add Favorite Website'), submit)
+  fireEvent.click(getByText('submit'), submit)
 
   fireEvent.click(getByText('Delete'))
 
