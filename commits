@@ -1,0 +1,26 @@
+Cameron Flowers (24):
+      adding testing files
+      editing Jenkinsfile
+      editing Jenkinsfile
+      editing Jenkinsfile
+      editing Jenkinsfile
+      editing Jenkinsfile
+      editing test file
+      adding git log to automated test
+      adding git log to automated test
+      adding git log to automated test
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      adding syntax to output sh commands
+      using environment vars for shell output
+      using environment vars for shell output
+      using environment vars for shell output
+      saving to output file
+      removing unnecessary file
+
