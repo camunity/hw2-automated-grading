@@ -36,7 +36,6 @@ pipeline {
                 script {
                     sh(returnStdout: true, script: 'git shortlog > commits')
                     sh(script: 'echo $(<commits)', returnStdout: true)
-                    echo $(<commits)
                 }
             }
 	    }
