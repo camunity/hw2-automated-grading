@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 echo "installing required packages"
-                git branch: 'master', url: 'https://github.com/Patience-Fuglo/favLink/blob/master/src/components/Form.js'
+                git branch: 'master', url: 'https://github.com/Patience-Fuglo/favLink'
                 sh 'sed -i "s/$SEARCH/$REPLACE/" package.json'
                 sh 'sed -i "s/$PREV/$SWAP/" ./src/App.test.js'
                 sh 'ls main'
