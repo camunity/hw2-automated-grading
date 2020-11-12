@@ -28,7 +28,7 @@ test('Updating name input updates table', () => {
   fireEvent.change(inputs[1], { target: { value: 'https://www.github.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('Add Favorite Website'), submit)
+  fireEvent.click(getByText('submit'), submit)
 
   fireEvent.change(inputs[0], { target: { value: 'Cam' } })
   fireEvent.change(inputs[1], { target: { value: 'https://www.ayocamo.com' } })
