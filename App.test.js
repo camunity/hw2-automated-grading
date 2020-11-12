@@ -37,10 +37,31 @@ test('Updating name input updates table', () => {
   fireEvent.click(getByText('Add Favorite Website'), submit)
 
   expect(getAllByRole('row')).toHaveLength(3)
+})
 
-  // const tbody = getAllByRole("rowgroup")[1];
-  // const utils = within(row);
-  // expect(queryAllByRole('row')).toContain(1)
-  // expect(utils.getByText('Github')).toBeInTheDocument();
+test('Clicking remove deletes row in table', () => {
+  const { inputs, getAllByRole, queryAllByRole, getByText, table, submit } = setup()
+
+  fireEvent.change(inputs[0], { target: { value: 'Github' } })
+  fireEvent.change(inputs[1], { target: { value: 'https://www.github.com' } })
+
+  // expect(inputs[0].value).toBe('Github') //empty after
+  fireEvent.click(getByText('Add Favorite Website'), submit)
+
+  fireEvent.click(getByText('Delete'))
+
+  expect(getAllByRole('row')).toHaveLength(1)
+
+
+  fireEvent.change(inputs[0], { target: { value: 'Cam' } })
+  fireEvent.change(inputs[1], { target: { value: 'https://www.ayocamo.com' } })
+
+  // expect(inputs[0].value).toBe('Github') //empty after
+  fireEvent.click(getByText('Add Favorite Website'), submit)
+
+  fireEvent.click(getByText('Delete'))
+
+
+  expect(getAllByRole('row')).toHaveLength(1)
 
 })
