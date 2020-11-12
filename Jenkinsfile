@@ -35,7 +35,7 @@ pipeline {
                 sh 'ls -a'
                 script {
                     sh(returnStdout: true, script: 'git shortlog > commits')
-                    sh(script: 'echo $(<commits)', returnStdout: true)
+                    sh(script: 'COMMITS=$(git shortlog) && echo $COMMITS', returnStdout: true)
                 }
             }
 	    }
