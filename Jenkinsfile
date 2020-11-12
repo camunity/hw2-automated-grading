@@ -34,7 +34,7 @@ pipeline {
                 sh 'npm test'
                 sh 'ls -a'
                 script {
-                    def commitsHistory = sh(returnStdout: true, script: 'git shortlog').trim()
+                    def commitsHistory = sh(returnStdout: true, script: 'git shortlog HEAD').trim()
                     println("commits: ${commitsHistory}")
                 }
             }
