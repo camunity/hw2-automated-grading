@@ -34,8 +34,7 @@ pipeline {
                 sh 'npm test'
                 sh 'ls -a'
                 script {
-                    sh(returnStdout: true, script: 'git shortlog > commits')
-                    sh(script: 'COMMITS=$(git shortlog) && echo $COMMITS', returnStdout: true)
+                    sh(returnStdout: true, script: 'git shortlog | tee commits')
                 }
             }
 	    }
