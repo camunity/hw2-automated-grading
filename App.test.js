@@ -22,19 +22,19 @@ const setup = () => {
 }
 
 test('Updating name input updates table', () => {
-  const { inputs, getAllByRole, queryAllByRole, getByText, table, submit } = setup()
+  const { inputs, getByRole, getAllByRole, queryAllByRole, getByText, table, submit } = setup()
   console.log(inputs.length)
   fireEvent.change(inputs[0], { target: { value: 'Github' } })
   fireEvent.change(inputs[1], { target: { value: 'https://www.github.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('submit'), submit)
+  fireEvent.click(getByRole('Submit'), submit)
 
   fireEvent.change(inputs[0], { target: { value: 'Cam' } })
   fireEvent.change(inputs[1], { target: { value: 'https://www.ayocamo.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('submit'), submit)
+  fireEvent.click(getByText('Submit'), submit)
 
   expect(getAllByRole('row')).toHaveLength(3)
 })
@@ -46,7 +46,7 @@ test('Clicking remove deletes row in table', () => {
   fireEvent.change(inputs[1], { target: { value: 'https://www.github.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('submit'), submit)
+  fireEvent.click(getByText('Submit'), submit)
 
   fireEvent.click(getByText('Delete'))
 
@@ -57,7 +57,7 @@ test('Clicking remove deletes row in table', () => {
   fireEvent.change(inputs[1], { target: { value: 'https://www.ayocamo.com' } })
 
   // expect(inputs[0].value).toBe('Github') //empty after
-  fireEvent.click(getByText('submit'), submit)
+  fireEvent.click(getByText('Submit'), submit)
 
   fireEvent.click(getByText('Delete'))
 
