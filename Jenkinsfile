@@ -24,6 +24,7 @@ pipeline {
                 sh 'ls main'
                 sh 'ls -a'
 		        sh 'cat ./main/App.test.js > ./src/App.test.js'
+                sh 'npm install'
                 sh 'npm ci'
             }
 
