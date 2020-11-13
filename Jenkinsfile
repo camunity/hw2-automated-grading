@@ -18,13 +18,12 @@ pipeline {
             steps {
                 sh 'pwd'
                 echo "installing required packages"
-                git branch: 'main', url: 'https://github.com/JayTthePro91/favlinks.github.io.git'
+                git branch: 'main', url: 'https://github.com/AlvinMotieram/alvinmotieramhw2'
                 sh 'sed -i "s/$SEARCH/$REPLACE/" package.json'
                 sh 'sed -i "s/$PREV/$SWAP/" ./src/App.test.js'
                 sh 'ls main'
                 sh 'ls -a'
 		        sh 'cat ./main/App.test.js > ./src/App.test.js'
-                sh 'npm install'
                 sh 'npm ci'
             }
 
