@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 echo "installing required packages"
-                git branch: 'main', url: 'https://github.com/SajjadKazi/React-2'
+                git branch: 'master', url: 'https://github.com/agyapongeli77/favouriteLinks'
                 sh 'sed -i "s/$SEARCH/$REPLACE/" package.json'
                 sh 'sed -i "s/$PREV/$SWAP/" ./src/App.test.js'
                 sh 'ls main'
