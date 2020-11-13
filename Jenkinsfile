@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 echo "installing required packages"
-                git branch: 'mainn', url: 'https://github.com/Ibrah00/FavoriteLinks'
+                git branch: 'master', url: 'https://github.com/ChrisEspinal/favLinks'
                 sh 'sed -i "s/$SEARCH/$REPLACE/" package.json'
                 sh 'sed -i "s/$PREV/$SWAP/" ./src/App.test.js'
                 sh 'ls main'
